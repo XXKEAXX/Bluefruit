@@ -8,7 +8,7 @@
     <author >
          Lone Østerlund based on an example by Don Coleman: 
 		 https://github.com/don/cordova-plugin-ble-central 
-		 revideret til IoS af Rico Ghanem
+		 revideret til IoS af Riko Ghanem
     </author>
 
     <content src="index.html" />
