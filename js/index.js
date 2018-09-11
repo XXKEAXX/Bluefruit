@@ -31,8 +31,19 @@ var blue ={
 
 var ConnDeviceId;
 var rssiInterval;
+var canConnect = 0;
 var deviceList =[];
  
+function connectbutton() {
+	
+	canConnect = 1;
+}	
+
+function losefocus() {
+   
+	document.getElementById("connectbutton").blur();
+}
+
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
     bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
@@ -79,15 +90,23 @@ function onConnect(){
 	
 	 rssiInterval = setInterval(function() {
                 ble.readRSSI(ConnDeviceId, function(rssi) {
-			
+		
+		  if(connectbutton == 1){
+			  
 			if(rssi < 0)
 				rssi = (rssi * -1);
 			
-			if(rssi <= 42)
+			if(rssi <= 42){
+				connectbutton = 0;
+				losefocus();
 				alert("FOUND");
+			}
+				
 				
 			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+rssi;
-	
+			
+		        }
+			
                     }, function(err) {
                         		alert('unable to read RSSI'+err);
                        		 clearInterval(rssiInterval);
