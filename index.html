@@ -87,11 +87,18 @@ var transitionEvent = whichTransitionEvent();
 	  
   
   });
+	
+		     
+		      function yourCallbackFunctionResum()
+{
+
+      alert("Resume off1");
+}
 		     
  function yourCallbackFunctionResume()
 {
-      document.removeEventListener(transitionEvent, yourCallbackFunctionResume);
-      alert("Resume off");
+      document.removeEventListener(transitionEvent, yourCallbackFunctionResum);
+ 
 }
 			     
 			     
