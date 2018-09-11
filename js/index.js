@@ -38,13 +38,7 @@ function connectbutton() {
 	
 	canConnect = 1;
 	
-	document.getElementById('connectbutton').addEventListener("mouseup",function(e){
-                e.preventDefault();
-		
-	
-            document.getElementById('connectbutton').focus();
-			alert(1213);
-        });
+
 	
 	
 }	
