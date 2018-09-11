@@ -85,7 +85,7 @@ function onConnect(){
                         alert('unable to read RSSI'+err);
                         clearInterval(rssiSample);
                         })
-            }, 5000);
+            }, 100);
 	
 	
 	
