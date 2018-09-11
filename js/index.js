@@ -30,6 +30,7 @@ var blue ={
 }
 
 var ConnDeviceId;
+var rssiInterval;
 var deviceList =[];
  
 function onLoad(){
@@ -76,7 +77,7 @@ function conn(){
  
 function onConnect(){
 	
-	 var rssiSample = setInterval(function() {
+	 rssiInterval = setInterval(function() {
                 ble.readRSSI(ConnDeviceId, function(rssi) {
 			
 			if(rssi < 0)
@@ -88,8 +89,8 @@ function onConnect(){
 			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+rssi;
 	
                     }, function(err) {
-                        alert('unable to read RSSI'+err);
-                        clearInterval(rssiSample);
+                        		alert('unable to read RSSI'+err);
+                       		 clearInterval(rssiInterval);
                         })
             }, 20);
 	
