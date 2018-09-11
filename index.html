@@ -58,9 +58,21 @@
 		<div id="receiveDiv"></div>
 	     
 	     <script>
+		     	
+				document.getElementById('connectbutton').addEventListener( 
+     'webkitTransitionEnd', 
+     function( event ) { 
+         alert( "Finished transition!" ); 
+     }, false );
+		     
 		     	document.getElementById('connectbutton').addEventListener("mouseup",function(e){
                 e.preventDefault();
 		
+				
+				
+			
+				
+				
 	// Give the document focus
 window.focus();
 
