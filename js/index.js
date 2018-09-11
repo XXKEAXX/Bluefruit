@@ -82,7 +82,7 @@ function onConnect(){
 			if(rssi < 0)
 				rssi = (rssi * -1);
 			
-			if(rssi <= 49)
+			if(rssi <= 55)
 				alert("FOUND");
 				
 			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+rssi;
