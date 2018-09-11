@@ -59,29 +59,50 @@
 	     
 	     <script>
 		     	
-				document.getElementById('connectbutton').addEventListener( 
-     'webkitTransitionEnd', 
-     function( event ) { 
-	     
-	     
-	     
-	      document.getElementById('connectbutton').removeEventListener('webkitTransitionEnd',  function(){
-		      
-	     
-		      	     // Remove focus from any focused element
-if (document.activeElement) {
-    document.activeElement.blur();
+ function whichTransitionEvent(){
+	 
+  var t,
+      el = document.createElement("fakeelement");
+
+  var transitions = {
+    "transition"      : "transitionend",
+    "OTransition"     : "oTransitionEnd",
+    "MozTransition"   : "transitionend",
+    "WebkitTransition": "webkitTransitionEnd"
+  }
+
+  for (t in transitions){
+    if (el.style[t] !== undefined){
+      return transitions[t];
+    }
+  }
 }
+
+var transitionEvent = whichTransitionEvent();
+		     
+		
+  document.getElementById('connectbutton').addEventListener(transitionEvent,  function(  ){ 
+  
+  
+	   		 document.getElementById('connectbutton').removeEventListener(transitionEvent,   function(  ) { 
+  
+  
+  			 alert( "Finished transition1!!" ); 
+  
+ 		 });
+		
+	  
+	  
+  
+  });
+		     
 	     
-	     	// Give the document focus
-window.focus();
-         alert( "Finished transition!!!" ); 
-		      
-		      
-	      });
-	     
-	     
-     }, false );
+			     
+			     
+			     
+		     
+		     
+
 		     
 		     	document.getElementById('connectbutton').addEventListener("mouseup",function(e){
                 e.preventDefault();
