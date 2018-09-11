@@ -75,6 +75,18 @@ function conn(){
  }
  
 function onConnect(){
+	
+	 var rssiSample = setInterval(function() {
+                ble.readRSSI(ConnDeviceId, function(rssi) {
+                        alert('read RSSI'+rssi+'with device'+ ConnDeviceId);
+                    }, function(err) {
+                        alert('unable to read RSSI'+err);
+                        clearInterval(rssiSample);
+                        })
+            }, 5000);
+	
+	
+	
 	document.getElementById("statusDiv").innerHTML = " Status: Connected";
 	document.getElementById("bleId").innerHTML = ConnDeviceId;
 	ble.startNotification(ConnDeviceId, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
