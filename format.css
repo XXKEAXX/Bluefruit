@@ -1,9 +1,19 @@
+
+* {  
+	
+     -webkit-backface-visibility:  hidden;
+     -webkit-tap-highlight-color:  transparent;
+  }
+
+
 body{
 	background-color: #ffffff;
 }	
 img{
 	width: 100%;	
 }
+
+
 
 .button {
   
