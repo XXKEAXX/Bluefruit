@@ -83,13 +83,16 @@ var transitionEvent = whichTransitionEvent();
 		
   document.getElementById('connectbutton').addEventListener(transitionEvent,  function(  ){ 
   
-   alert( "Finished transition0!!" ); 
-	   		  document.getElementById("ledOnButton").focus();
+   yourCallbackFunctionResume();
 	  
   
   });
 		     
-	     
+ function yourCallbackFunctionResume()
+{
+      document.removeEventListener(transitionEvent, yourCallbackFunctionResume);
+      alert("Resume off");
+}
 			     
 			     
 			     
