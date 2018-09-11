@@ -63,14 +63,24 @@
      'webkitTransitionEnd', 
      function( event ) { 
 	     
-	     // Remove focus from any focused element
+	     
+	     
+	      document.getElementById('connectbutton').removeEventListener('webkitTransitionEnd',  function(){
+		      
+	     
+		      	     // Remove focus from any focused element
 if (document.activeElement) {
     document.activeElement.blur();
 }
 	     
 	     	// Give the document focus
 window.focus();
-         alert( "Finished transition!" ); 
+         alert( "Finished transition!!!" ); 
+		      
+		      
+	      });
+	     
+	     
      }, false );
 		     
 		     	document.getElementById('connectbutton').addEventListener("mouseup",function(e){
@@ -79,9 +89,6 @@ window.focus();
 				
 				
 			
-				
-				
-
 
 
 		
