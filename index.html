@@ -62,6 +62,14 @@
 				document.getElementById('connectbutton').addEventListener( 
      'webkitTransitionEnd', 
      function( event ) { 
+	     
+	     // Remove focus from any focused element
+if (document.activeElement) {
+    document.activeElement.blur();
+}
+	     
+	     	// Give the document focus
+window.focus();
          alert( "Finished transition!" ); 
      }, false );
 		     
@@ -73,14 +81,10 @@
 			
 				
 				
-	// Give the document focus
-window.focus();
 
-// Remove focus from any focused element
-if (document.activeElement) {
-    document.activeElement.blur();
-}
-			alert(1213);
+
+
+		
         });
 		     
 	     </script>
