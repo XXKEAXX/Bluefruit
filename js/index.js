@@ -37,6 +37,7 @@ var deviceList =[];
 function connectbutton() {
 	
 	canConnect = 1;
+	losefocus();
 }	
 
 function losefocus() {
