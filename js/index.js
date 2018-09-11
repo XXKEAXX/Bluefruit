@@ -78,7 +78,9 @@ function onConnect(){
 	
 	 var rssiSample = setInterval(function() {
                 ble.readRSSI(ConnDeviceId, function(rssi) {
-                        alert('read RSSI'+rssi+'with device'+ ConnDeviceId);
+			
+			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+rssi;
+	
                     }, function(err) {
                         alert('unable to read RSSI'+err);
                         clearInterval(rssiSample);
