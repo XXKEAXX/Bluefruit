@@ -79,6 +79,8 @@ function onConnect(){
 	 var rssiSample = setInterval(function() {
                 ble.readRSSI(ConnDeviceId, function(rssi) {
 			
+			if(rssi < 0)
+				rssi = (rssi * -1);
 			
 			if(rssi >=50)
 				alert("FOUND");
