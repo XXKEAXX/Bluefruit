@@ -37,7 +37,15 @@ var deviceList =[];
 function connectbutton() {
 	
 	canConnect = 1;
-	losefocus();
+	
+	document.getElementById('connectbutton').addEventListener("click",function(e){
+                e.preventDefault();
+		
+		alert(1213);
+            document.getElementById('test').focus();
+        });
+	
+	
 }	
 
 function losefocus() {
