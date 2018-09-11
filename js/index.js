@@ -38,11 +38,12 @@ function connectbutton() {
 	
 	canConnect = 1;
 	
-	document.getElementById('connectbutton').addEventListener("click",function(e){
+	document.getElementById('connectbutton').addEventListener("mouseup",function(e){
                 e.preventDefault();
 		
-		alert(1213);
-            document.getElementById('test').focus();
+	
+            document.getElementById('connectbutton').focus();
+			alert(1213);
         });
 	
 	
