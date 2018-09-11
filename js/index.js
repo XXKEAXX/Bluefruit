@@ -92,13 +92,13 @@ function onConnect(){
 	 rssiInterval = setInterval(function() {
                 ble.readRSSI(ConnDeviceId, function(rssi) {
 		
-		  if(connectbutton == 1){
+		  if(canConnect == 1){
 			  
 			if(rssi < 0)
 				rssi = (rssi * -1);
 			
 			if(rssi <= 42){
-				connectbutton = 0;
+				canConnect = 0;
 				losefocus();
 				alert("FOUND");
 			}
