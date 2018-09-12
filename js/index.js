@@ -130,7 +130,7 @@ function onDeviceReady(){
     var password = 'hello friend2!3d';
 	
     var encrypted = encrypt(password, 240429);
-    encrypted = encrypted+"+--+;
+    encrypted = encrypted+"+--+";
 	
 	
 	
