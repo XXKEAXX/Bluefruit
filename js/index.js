@@ -95,7 +95,7 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-  var password = 'hello ble!';
+  var password = 'hello ble this is a test!';
 	
     var encrypted = encrypt(password, 240429);
  
