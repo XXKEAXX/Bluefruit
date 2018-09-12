@@ -126,12 +126,12 @@ function UnBlockInterval(why){
 
 function onDeviceReady(){
 
-	
+	/*
   var password = 'hello friend2!hello friend2!hello friend2!hello friend2!9';
 	
     var encrypted = encrypt(password, 240429);
  
-
+*/
 	
 	
 	
@@ -171,7 +171,7 @@ function onDeviceReady(){
 						      }, UnBlockInterval);
 						 
 						 
-						        var f = encrypted+"+--+";
+						       // var f = encrypted+"+--+";
 						 
 						 alert(f);
 						 	 ble.writeWithoutResponse(deviceId, 
