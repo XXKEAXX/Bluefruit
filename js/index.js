@@ -126,12 +126,11 @@ function UnBlockInterval(why){
 
 function onDeviceReady(){
 
-	/*
-  var password = 'hello friend2!hello friend2!hello friend2!hello friend2!9';
+	
+    var password = 'hello friend2!3d';
 	
     var encrypted = encrypt(password, 240429);
- 
-*/
+    encrypted = encrypted+"+--+;
 	
 	
 	
@@ -177,7 +176,7 @@ function onDeviceReady(){
 						 	 ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes("hello friend2!32dss2"), function() {
+				 			 stringToBytes(encrypted), function() {
 	
 	 
 							   BlockInterval = 1;
