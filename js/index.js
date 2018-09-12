@@ -67,7 +67,8 @@ function onLoad(){
 
 
 function onDeviceReady(){
-	
+	var UUID = blue.serviceUUID
+	alert(UUID);
 		ble.scan([blue.serviceUUID], 5, function(device) {
 				
 				  
@@ -93,7 +94,7 @@ function onDeviceReady(){
 					 
 					
 						  ble.writeWithoutResponse(bluetoothList[0], 
-						  blue.serviceUUID,
+						  UUID,
 				 		  blue.txCharacteristic, 
 				 		  stringToBytes("hello ble"), function() {
 	
