@@ -2,6 +2,26 @@
 //https://github.com/don/cordova-plugin-ble-central
 
 
+function encrypt (password, key) {
+    var i,
+        output = '';
+
+    for (i = 0; i < password.length; i++) {
+        var charCode = password.charCodeAt(i),
+            keyedCharCode = (charCode - key) & 0xff;
+
+        output += String.fromCharCode(keyedCharCode);
+    }
+
+    return output;
+}
+
+function decrypt (password, key) {
+    return encrypt(password, -key);
+}
+
+
+
 // ASCII only
 function bytesToString(buffer) {
     return String.fromCharCode.apply(null, new Uint8Array(buffer));
@@ -75,10 +95,10 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-	var password = "hello ble!"
-
-var key = 240429;
-var output='';
+  var password = 'hello ble!', key = 240429,
+    encrypted = encrypt(password, key),
+    decrypted = decrypt(encrypted, key);
+ 
 
    for (var i=0; i<password.length; i++) {
 
@@ -131,7 +151,7 @@ var output='';
 						      }, UnBlockInterval);
 						 
 						 
-						     var f = output+"+--+";
+						     var f = encrypted+"+--+";
 						 	 ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
