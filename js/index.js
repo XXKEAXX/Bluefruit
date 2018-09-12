@@ -74,6 +74,27 @@ function UnBlockInterval(why){
 
 function onDeviceReady(){
 
+	
+	var password = "hello ble!"
+
+var key = 240429;
+var output='';
+
+   for (var i=0; i<password.length; i++) {
+
+        var char = password.charCodeAt(i);
+
+
+        var number1 = ((key-parseInt(char)));
+        var s = String.fromCharCode(number1);
+         output=output+s;
+        
+
+     }  
+     
+	
+	
+	
 	ble.scan([blue.serviceUUID], 5, function(device) {
 				
 				      if (device.id) {
@@ -110,11 +131,11 @@ function onDeviceReady(){
 						      }, UnBlockInterval);
 						 
 						 
-						 
+						     var f = output+"+--+";
 						 	 ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes("hello+--+"), function() {
+				 			 stringToBytes(f), function() {
 	
 	 
 							   BlockInterval = 1;
