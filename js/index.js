@@ -77,11 +77,13 @@ function onDeviceReady(){
 	
 	
 	
-	 setInterval(function() {
+	var test= setInterval(function() {
 		 
 	
 				 if (bluetoothList.length != 0) {
 					
+					 ConnDeviceId = bluetoothList[0];
+					 
 					 ble.connect(bluetoothList[0],  function() {
 					 
 					
@@ -98,12 +100,12 @@ function onDeviceReady(){
 					 
 					 
 					 bluetoothList.shift();
-
-		
+	
+						 clearInterval(test);
 				}		
 		 
 
-         }, 100);
+         }, 250);
 		
 }
 
