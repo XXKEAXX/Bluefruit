@@ -68,14 +68,14 @@ function onLoad(){
 
 function onDeviceReady(){
 
-		ble.scan([blue.serviceUUID], 5, function(device) {
+	ble.scan([blue.serviceUUID], 5, function(device) {
 				
 				      if (device.id) {
     					
 					      bluetoothList.push(device.id);
 				      }
 
-		}, onError);
+	}, onError);
 	
 	
 	
