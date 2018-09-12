@@ -79,19 +79,29 @@ function onDeviceReady(){
 	
 	 setInterval(function() {
 		 
-		 if(!BlockInterval){
-			 
+	
 				 if (bluetoothList.length != 0) {
 					
-					 var deviceid = bluetoothList[0];
+					 ble.connect(bluetoothList[0],  function() {
+					 
+					
+						  ble.writeWithoutResponse(bluetoothList[0], 
+						  blue.serviceUUID,
+				 		  blue.txCharacteristic, 
+				 		  stringToBytes("hello ble"), function() {
+	
+						  }, onError);
+						 
+					 
+					 }, onConnError);
+					 
+					 
 					 
 					 bluetoothList.shift();
-					 
-					 BlockInterval = 1;
-   
+
 		
 				}		
-		 }
+		 
 
          }, 100);
 		
