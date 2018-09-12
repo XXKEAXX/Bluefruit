@@ -173,11 +173,11 @@ function onDeviceReady(){
 						 
 						       // var f = encrypted+"+--+";
 						 
-						 alert(f);
+					
 						 	 ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes("hello friendhello fg"), function() {
+				 			 stringToBytes("hello friend2!32dss1"), function() {
 	
 	 
 							   BlockInterval = 1;
