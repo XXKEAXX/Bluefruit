@@ -69,7 +69,7 @@ function onDeviceReady(){
 		
 		
 		
-			alert(device.id);
+			alert(device.name);
 		
 		
 		}, onError);
