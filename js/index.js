@@ -49,39 +49,39 @@ function connectbutton() {
 	canConnect = 1;
 	
 	document.getElementById("connectbutton").classList.add("connectbutton");
-	
 }	
 
-function losefocus() {
-   
-	document.getElementById("connectbutton").blur();
-}
+
+
+
+
 
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
-    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
+        bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
 }
 
+
+
 function onDeviceReady(){
-	refreshDeviceList();
+	
+		ble.scan([blue.serviceUUID], 5, function(device) {
+		
+		
+		
+			alert(device.id);
+		
+		
+		}, onError);
 }
 
 	 
-function refreshDeviceList(){
-	//deviceList =[];
-	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
-	if (cordova.platformId === 'android') { // Android filtering is broken
-		ble.scan([], 5, onDiscoverDevice, onError);
-	} else {
-		//alert("Disconnected");
-		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
-	}
-}
+
 
 
 function onDiscoverDevice(device){
-	//Make a list in html and show devises
-	var listItem = document.createElement('li'),
+    //Make a list in html and show devises
+    var listItem = document.createElement('li'),
     html = device.name+ "," + device.id;
     listItem.innerHTML = html;
     document.getElementById("bleDeviceList").appendChild(listItem);
