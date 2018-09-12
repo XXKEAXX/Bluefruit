@@ -65,6 +65,12 @@ function onLoad(){
 }
 
 
+function UnBlockInterval(why){
+	
+  	 BlockInterval = 0;
+	 alert("ERROR: " + why); 
+}
+
 
 function onDeviceReady(){
 
@@ -101,7 +107,7 @@ function onDeviceReady(){
 				 
 								 alert("GOT: "+bytesToString(data));
 						 
-						      }, onError);
+						      }, UnBlockInterval);
 						 
 						 
 						 
@@ -111,10 +117,10 @@ function onDeviceReady(){
 				 			 stringToBytes("hello ble!"), function() {
 	
 	 
-							 	 BlockInterval = 1;
+							   BlockInterval = 1;
 							  
 							  
-							  }, onError);
+							  }, UnBlockInterval);
 						 
 					 
 					 }, onConnError);
