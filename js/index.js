@@ -114,7 +114,7 @@ function onDeviceReady(){
 						 	 ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes("hello ble!\r\n\r\n"), function() {
+				 			 stringToBytes("hello ble!+--+"), function() {
 	
 	 
 							   BlockInterval = 1;
