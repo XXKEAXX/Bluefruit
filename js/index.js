@@ -93,12 +93,24 @@ function onDeviceReady(){
 					 ble.connect(deviceId,  function() {
 					 
 					
+					 ble.startNotification(deviceId,
+						       blue.serviceUUID, 
+						       blue.rxCharacteristic, 
+						       
+						       function(data){
+				 
+								 alert("GOT: "+bytesToString(data));
+						 
+						      }, onError);
+						 
+						 
+						 
 						 	 ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			  stringToBytes("hello ble!"), function() {
+				 			 stringToBytes("hello ble!"), function() {
 	
-							  
+	 
 							 	 BlockInterval = 1;
 							  
 							  
