@@ -39,6 +39,9 @@ var blue ={
     rxCharacteristic: '6e400003-b5a3-f393-e0a9-e50e24dcca9e'  // receive is from the phone's perspective
 }
 
+var bluetoothList =[];
+var BlockInterval = 0;
+
 var ConnDeviceId;
 var rssiInterval;
 var canConnect = 0;
@@ -67,12 +70,31 @@ function onDeviceReady(){
 	
 		ble.scan([blue.serviceUUID], 5, function(device) {
 		
-		
-		
-			alert(device.name);
-		
-		
+		      		   bluetoothList.push(device.id);
+
 		}, onError);
+	
+	
+	
+	
+	 setInterval(function() {
+		 
+		 if(!BlockInterval){
+			 
+				 if (bluetoothList.length != 0) {
+					
+					 var deviceid = bluetoothList[0];
+					 
+					 bluetoothList.shift();
+					 
+					 BlockInterval = 1;
+   
+		
+				}		
+		 }
+
+         }, 100);
+		
 }
 
 	 
