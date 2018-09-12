@@ -16,6 +16,16 @@ function stringToBytes(string) {
     return array.buffer;
 }
 
+
+function riko_af(transmittereffektniveau, rssi) {
+	
+    var db_f = transmittereffektniveau - rssi;
+     
+    var l_f = Math.pow(10, db_f / 10);
+       
+    return Math.sqrt(l_f);
+}
+
 // this is ble hm-10 UART service
 /*var blue= {
     serviceUUID: "0000FFE0-0000-1000-8000-00805F9B34FB",
@@ -95,21 +105,10 @@ function onConnect(){
 	 rssiInterval = setInterval(function() {
                 ble.readRSSI(ConnDeviceId, function(rssi) {
 		
-		  if(canConnect == 1){
-			  
-			if(rssi < 0)
-				rssi = (rssi * -1);
+	
+			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+riko_af(-59, rssi);
 			
-			if(rssi <= 42){
-				canConnect = 0;
-				losefocus();
-				alert("FOUND");
-			}
-				
-				
-			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+rssi;
-			
-		        }
+		        
 			
                     }, function(err) {
                         		alert('unable to read RSSI'+err);
