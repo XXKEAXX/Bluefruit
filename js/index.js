@@ -82,15 +82,15 @@ function onDeviceReady(){
 	
 	
 	
-	var test= setInterval(function() {
+	setInterval(function() {
 		 
 			if(!BlockInterval){
 				
 				 if (bluetoothList.length != 0) {
 					
-				        ConnDeviceId = bluetoothList[0];
 					 
 					 deviceId= bluetoothList[0];
+					 bluetoothList.shift();
 					 
 					 ble.connect(deviceId,  function() {
 					 
@@ -100,6 +100,10 @@ function onDeviceReady(){
 				 		  blue.txCharacteristic, 
 				 		  stringToBytes("hello ble!"), function() {
 	
+							  
+							  BlockInterval = 1;
+							  
+							  
 						  }, onError);
 						 
 					 
@@ -107,9 +111,9 @@ function onDeviceReady(){
 					 
 					 
 					 
-					 bluetoothList.shift();
-					BlockInterval = 1;
-					 clearInterval(test);
+					
+					
+				
 				}		
 		 }
 
