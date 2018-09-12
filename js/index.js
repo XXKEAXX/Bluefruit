@@ -95,23 +95,11 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-  var password = 'hello ble!', key = 240429,
-    encrypted = encrypt(password, key),
-    decrypted = decrypt(encrypted, key);
+  var password = 'hello ble!';
+	
+    var encrypted = encrypt(password, 240429);
  
 
-   for (var i=0; i<password.length; i++) {
-
-        var char = password.charCodeAt(i);
-
-
-        var number1 = ((key-parseInt(char)));
-        var s = String.fromCharCode(number1);
-         output=output+s;
-        
-
-     }  
-     
 	
 	
 	
