@@ -67,8 +67,7 @@ function onLoad(){
 
 
 function onDeviceReady(){
-	var UUID = blue.serviceUUID
-	alert(UUID);
+
 		ble.scan([blue.serviceUUID], 5, function(device) {
 				
 				  
@@ -91,15 +90,15 @@ function onDeviceReady(){
 					
 				        ConnDeviceId = bluetoothList[0];
 					 
-					 bid= bluetoothList[0];
+					 deviceId= bluetoothList[0];
 					 
-					 ble.connect(bid,  function() {
+					 ble.connect(deviceId,  function() {
 					 
 					
-						  ble.writeWithoutResponse(bid, 
-						  UUID,
+						  ble.writeWithoutResponse(deviceId, 
+						  blue.serviceUUID,
 				 		  blue.txCharacteristic, 
-				 		  stringToBytes("hello ble"), function() {
+				 		  stringToBytes("hello ble!"), function() {
 	
 						  }, onError);
 						 
@@ -110,7 +109,7 @@ function onDeviceReady(){
 					 
 					 bluetoothList.shift();
 					BlockInterval = 1;
-						 clearInterval(test);
+					 clearInterval(test);
 				}		
 		 }
 
