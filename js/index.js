@@ -70,8 +70,6 @@ function onDeviceReady(){
 
 		ble.scan([blue.serviceUUID], 5, function(device) {
 				
-				  
-				      
 				      if (device.id) {
     					
 					      bluetoothList.push(device.id);
@@ -95,16 +93,16 @@ function onDeviceReady(){
 					 ble.connect(deviceId,  function() {
 					 
 					
-						  ble.writeWithoutResponse(deviceId, 
-						  blue.serviceUUID,
-				 		  blue.txCharacteristic, 
-				 		  stringToBytes("hello ble!"), function() {
+						 	 ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			  stringToBytes("hello ble!"), function() {
 	
 							  
-							  BlockInterval = 1;
+							 	 BlockInterval = 1;
 							  
 							  
-						  }, onError);
+							  }, onError);
 						 
 					 
 					 }, onConnError);
