@@ -48,8 +48,8 @@ function connectbutton() {
 	
 	canConnect = 1;
 	
-
-	
+	document.getElementById("connectbutton").classList.add("connectbutton");
+	alert(1);
 	
 }	
 
