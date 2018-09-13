@@ -209,6 +209,7 @@ function onDeviceReady(){
 					
 		
 	
+					alert(index);
 					
 						setTimeout(function(){
 						
