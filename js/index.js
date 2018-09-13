@@ -242,8 +242,8 @@ function onDeviceReady(){
 						 
 					
 			 	var C_ID = NineBytesTimeStamp();
-						 
-				ChunkedTransfer(encrypt(password, 240429), 8, function(chunk, last, index){
+						 //encrypt(password, 240429)
+				ChunkedTransfer(password, 8, function(chunk, last, index){
                 
 			
 					     setTimeout(function(payload){
