@@ -201,48 +201,41 @@ function onDeviceReady(){
 						 
 						 
 				
-					/*	 
+				var payloads =[];
+						 
 				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last, index){
                 
-				var payload = chunk+"+--+"+last.toString();
+				 payloads[index] = chunk+"+--+"+last.toString();
+					
+				
 					
 					
-			
-
+	
+					
+						setTimeout(function(){
+						
+							  ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			 stringToBytes(payloads[index]), function() {
+	
+							   BlockInterval = 1;
+							  
+							  
+							  }, UnBlockInterval);
+							
+							
+								     
+					}, index*1000);
+					
 					
 					
 					
 				});
-					*/	 
+						 
 						 
 						 var test = encrypt("hello", 240429)+"+--+0";
-						 
-						     ble.writeWithoutResponse(deviceId, 
-						 	 blue.serviceUUID,
-				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(test), function() {
-	
-							   BlockInterval = 1;
-							  
-							  
-							  }, UnBlockInterval);
-						setTimeout(function(){
-								     
-						 test = encrypt("NOO!", 240429)+"+--+0";
-							  ble.writeWithoutResponse(deviceId, 
-						 	 blue.serviceUUID,
-				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(test), function() {
-	
-							   BlockInterval = 1;
-							  
-							  
-							  }, UnBlockInterval);
-							
-							
-								     
-								     }, 3000);
-						 
+					
 					
 						 
 						 
