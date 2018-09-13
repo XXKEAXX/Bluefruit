@@ -215,10 +215,12 @@ function onDeviceReady(){
 				});
 					*/	 
 						 
+						 var test = encrypt("hello", 240429)+"+--+0";
+						 
 						     ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(encrypt("hello+--+0", 240429)), function() {
+				 			 stringToBytes(test), function() {
 	
 							   BlockInterval = 1;
 							  
@@ -226,11 +228,11 @@ function onDeviceReady(){
 							  }, UnBlockInterval);
 						setTimeout(function(){
 								     
-							
+						 test = encrypt("NOO!", 240429)+"+--+0";
 							  ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(encrypt("NOO+--+0", 240429)), function() {
+				 			 stringToBytes(test), function() {
 	
 							   BlockInterval = 1;
 							  
