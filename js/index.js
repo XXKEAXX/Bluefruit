@@ -89,7 +89,13 @@ function toUTF8Array(str) {
     return utf8;
 }
 
-
+var delay = ( function() {
+    var timer = 0;
+    return function(callback, ms) {
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+    };
+})();
 function riko_af(transmittereffektniveau, rssi) {
 	
     var db_f = transmittereffektniveau - rssi;
@@ -194,21 +200,16 @@ function onDeviceReady(){
 						 
 						 
 						 
-					
+				var x = 1;	
 						 
 				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last){
                 
 				var payload = chunk+"+--+"+last.toString();
 					
-					if(last){
-						
-						         ble.writeWithoutResponse(deviceId, 
-						 	 blue.serviceUUID,
-				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(payload), function() {
-	
-							  
-						        ble.writeWithoutResponse(deviceId, 
+					
+					delay(function(){
+
+						    ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
 				 			 stringToBytes(payload), function() {
@@ -218,13 +219,13 @@ function onDeviceReady(){
 							  
 							  }, UnBlockInterval);
 						
-								 
-								 
-							  
-							  
-							  }, UnBlockInterval);
 						
-					}
+						
+						}, x*1500 ); // end delay
+
+						x ++;
+					
+					
 				});
 						 
 						 
