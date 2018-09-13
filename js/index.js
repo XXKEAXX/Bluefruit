@@ -221,7 +221,7 @@ function onDeviceReady(){
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*200);
+						}, index*1500);
 					
 					
 					
