@@ -207,7 +207,19 @@ function onDeviceReady(){
 				 		 	 blue.txCharacteristic, 
 				 			 stringToBytes(payload), function() {
 	
+							  
+						        ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			 stringToBytes(payload), function() {
+	
 							   BlockInterval = 1;
+							  
+							  
+							  }, UnBlockInterval);
+						
+								 
+								 
 							  
 							  
 							  }, UnBlockInterval);
