@@ -154,7 +154,7 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-    var password = 'hello friend2!3d world hmmm!!!';
+    var password = 'hello friend2!3d world hmmm!!! something new to test today?';
 	
 	
 
