@@ -201,7 +201,7 @@ function onDeviceReady(){
 						 
 						 
 				
-						 
+					/*	 
 				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last, index){
                 
 				var payload = chunk+"+--+"+last.toString();
@@ -213,7 +213,7 @@ function onDeviceReady(){
 					
 					
 				});
-						 
+					*/	 
 						 
 						     ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
@@ -226,22 +226,7 @@ function onDeviceReady(){
 							  }, UnBlockInterval);
 						
 						 
-						delay(function(){
-
-						
-				  ble.writeWithoutResponse(deviceId, 
-						 	 blue.serviceUUID,
-				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(encrypt("NOOOO!", 240429)), function() {
-	
-							   BlockInterval = 1;
-							  
-							  
-							  }, UnBlockInterval);
-						
-						
-						}, 2000 ); // end delay
-						 
+					
 						 
 						 
 
