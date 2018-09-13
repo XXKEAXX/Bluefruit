@@ -207,37 +207,41 @@ function onDeviceReady(){
 				var payload = chunk+"+--+"+last.toString();
 					
 					
-					delay(function(){
-
-						    ble.writeWithoutResponse(deviceId, 
-						 	 blue.serviceUUID,
-				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(payload), function() {
-	
-							   BlockInterval = 1;
-							  
-							  
-							  }, UnBlockInterval);
-						
-						
-						    ble.writeWithoutResponse(deviceId, 
-						 	 blue.serviceUUID,
-				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(payload), function() {
-	
-							   BlockInterval = 1;
-							  
-							  
-							  }, UnBlockInterval);
-						
-						
-						
-						}, index*1200 ); // end delay
+			
 
 					
 					
 					
 				});
+						 
+						 
+						     ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			 stringToBytes(encrypt("hello", 240429)), function() {
+	
+							   BlockInterval = 1;
+							  
+							  
+							  }, UnBlockInterval);
+						
+						 
+						delay(function(){
+
+						
+				  ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			 stringToBytes(encrypt("NOOOO!", 240429)), function() {
+	
+							   BlockInterval = 1;
+							  
+							  
+							  }, UnBlockInterval);
+						
+						
+						}, 2000 ); // end delay
+						 
 						 
 						 
 
