@@ -242,7 +242,7 @@ function onDeviceReady(){
 						 
 					
 						 
-				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last, index){
+				ChunkedTransfer(encrypt(password, 240429), 8, function(chunk, last, index){
                 
 			
 					     setTimeout(function(payload){
@@ -256,7 +256,7 @@ function onDeviceReady(){
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*1200, (chunk+"+--+"+last.toString()) );
+						}, index*1200, (chunk+"."+last.toString()+NineBytesTimeStamp()+".") );
 					
 					
 				});
