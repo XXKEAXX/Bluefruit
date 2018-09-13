@@ -206,10 +206,7 @@ function onDeviceReady(){
 				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last, index){
                 
 				 payloads[index] = chunk+"+--+"+last.toString();
-					
-		
-	
-					alert(index);
+				
 					
 						setTimeout(function(){
 						
@@ -223,8 +220,6 @@ function onDeviceReady(){
 							 	 }, UnBlockInterval);
 							     
 						}, index*1500);
-					
-					
 					
 					
 				});
