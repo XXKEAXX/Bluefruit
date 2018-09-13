@@ -170,9 +170,7 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-    var password = 'Hello, Everybody! We are using Ble at Kea and have solved the 20 byte limit.';
-	
-	
+    var password = encrypt('Hello, Everybody! We are using Ble at Kea and have solved the 20 byte limit.', 240429);
 
 	
 	
@@ -218,7 +216,7 @@ function onDeviceReady(){
 					
 			 	var C_ID = NineBytesTimeStamp();
 						 //encrypt(password, 240429)
-				ChunkedTransfer(encrypt(password, 240429), 8, function(chunk, last, index){
+				ChunkedTransfer(password, 8, function(chunk, last, index){
                 
 			
 					     setTimeout(function(payload){
