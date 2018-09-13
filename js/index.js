@@ -210,7 +210,7 @@ function onDeviceReady(){
 							  
 							  }, UnBlockInterval);
 
-						wait(1500);
+					alert(payload);
 				});
 						 
 						 
