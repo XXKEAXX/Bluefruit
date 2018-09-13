@@ -43,9 +43,9 @@ function ChunkedTransfer(str, size, callback) {
     for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
     
    	 if(numChunks-1 == i)
-         callback( str.substr(o, size), 1);
+         callback( str.substr(o, size), 1, i);
          else
-         callback( str.substr(o, size), 0);
+         callback( str.substr(o, size), 0, i);
          
    }
 }
@@ -200,9 +200,9 @@ function onDeviceReady(){
 						 
 						 
 						 
-				var x = 1;	
+				
 						 
-				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last){
+				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last, index){
                 
 				var payload = chunk+"+--+"+last.toString();
 					
@@ -221,9 +221,9 @@ function onDeviceReady(){
 						
 						
 						
-						}, x*1500 ); // end delay
+						}, index*1200 ); // end delay
 
-						x ++;
+					
 					
 					
 				});
