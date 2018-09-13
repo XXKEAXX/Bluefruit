@@ -224,13 +224,13 @@ function onDeviceReady(){
 							 	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
-				 				 unicodeStringToTypedArray(payload), function() {
+				 				 stringToBytes(payload), function() {
 	
 							  		 BlockInterval = 1;
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*1400, (chunk+"."+last.toString()+C_ID+".") );
+						}, index*2100, (chunk+"."+last.toString()+C_ID+".") );
 					
 					
 				});
