@@ -36,6 +36,20 @@ function stringToBytes(string) {
     return array.buffer;
 }
 
+function ChunkedTransfer(str, size, callback) {
+ 
+    const numChunks = Math.ceil(str.length / size)
+
+    for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
+    
+   	 if(numChunks-1 == i)
+         callback( str.substr(o, size), 1);
+         else
+         callback( str.substr(o, size), 0);
+         
+   }
+}
+
 
 function toUTF8Array(str) {
     var utf8 = [];
@@ -129,8 +143,10 @@ function onDeviceReady(){
 	
     var password = 'hello friend2!3d';
 	
-    var encrypted = encrypt(password, 240429);
-    encrypted = encrypted+"+--+";
+	
+
+	
+	
 	
 	
 	
@@ -170,19 +186,28 @@ function onDeviceReady(){
 						      }, UnBlockInterval);
 						 
 						 
-						       // var f = encrypted+"+--+";
 						 
 					
-						 	 ble.writeWithoutResponse(deviceId, 
+						 
+				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last){
+                
+				var payload = chunk+"+--+"+last.toString();
+					
+						         ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(encrypted), function() {
+				 			 stringToBytes(payload), function() {
 	
-	 
 							   BlockInterval = 1;
 							  
 							  
 							  }, UnBlockInterval);
+
+
+				});
+						 
+						 
+
 						 
 					 
 					 }, onConnError);
