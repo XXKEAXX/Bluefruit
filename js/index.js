@@ -251,7 +251,7 @@ function onDeviceReady(){
 							 	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
-				 				 stringToBytes(payload), function() {
+				 				 toUTF8Array(payload), function() {
 	
 							  		 BlockInterval = 1;
 					
