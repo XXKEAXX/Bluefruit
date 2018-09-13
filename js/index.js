@@ -199,16 +199,12 @@ function onDeviceReady(){
 						      }, UnBlockInterval);
 						 
 						 
-						 
-				
-				var payloads =[];
+					
 						 
 				ChunkedTransfer(encrypt(password, 240429), 15, function(chunk, last, index){
                 
-				 payloads[index] = chunk+"+--+"+last.toString();
-				
-					
-						setTimeout(function(payload){
+			
+					     setTimeout(function(payload){
 						
 							 	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
@@ -219,7 +215,7 @@ function onDeviceReady(){
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*1500, (chunk+"+--+"+last.toString()) );
+						}, index*1200, (chunk+"+--+"+last.toString()) );
 					
 					
 				});
