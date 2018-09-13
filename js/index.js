@@ -200,6 +200,8 @@ function onDeviceReady(){
                 
 				var payload = chunk+"+--+"+last.toString();
 					
+					if(last){
+						
 						         ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
@@ -209,8 +211,8 @@ function onDeviceReady(){
 							  
 							  
 							  }, UnBlockInterval);
-						wait(8000);	
-					alert(payload);
+						
+					}
 				});
 						 
 						 
