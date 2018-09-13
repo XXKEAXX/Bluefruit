@@ -77,6 +77,18 @@ function stringToBytes(string) {
     return array.buffer;
 }
 
+function stringToUint(string) {
+    var string = btoa(unescape(encodeURIComponent(string))),
+        charList = string.split(''),
+        uintArray = [];
+    for (var i = 0; i < charList.length; i++) {
+        uintArray.push(charList[i].charCodeAt(0));
+    }
+    return new Uint8Array(uintArray);
+}
+
+
+
 function ChunkedTransfer(str, size, callback) {
  
     const numChunks = Math.ceil(str.length / size)
@@ -90,14 +102,6 @@ function ChunkedTransfer(str, size, callback) {
          
    }
 }
-function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
-}
-
 
 function toUTF8Array(str) {
     var utf8 = [];
@@ -251,7 +255,7 @@ function onDeviceReady(){
 							 	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
-				 				 toUTF8Array(payload), function() {
+				 				 stringToUint(payload).buffer, function() {
 	
 							  		 BlockInterval = 1;
 					
