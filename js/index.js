@@ -49,6 +49,13 @@ function ChunkedTransfer(str, size, callback) {
          
    }
 }
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 
 
 function toUTF8Array(str) {
@@ -141,7 +148,7 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-    var password = 'hello friend2!3d';
+    var password = 'hello friend2!3d world hmmm!!!';
 	
 	
 
@@ -203,7 +210,7 @@ function onDeviceReady(){
 							  
 							  }, UnBlockInterval);
 
-
+						wait(1500);
 				});
 						 
 						 
