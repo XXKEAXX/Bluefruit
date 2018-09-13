@@ -218,7 +218,7 @@ function onDeviceReady(){
 					
 			 	var C_ID = NineBytesTimeStamp();
 						 //encrypt(password, 240429)
-				ChunkedTransfer(password, 8, function(chunk, last, index){
+				ChunkedTransfer(encrypt(password, 240429), 8, function(chunk, last, index){
                 
 			
 					     setTimeout(function(payload){
@@ -232,7 +232,7 @@ function onDeviceReady(){
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*1600, (chunk+"."+last.toString()+C_ID+".") );
+						}, index*2100, (chunk+"."+last.toString()+C_ID+".") );
 					
 					
 				});
