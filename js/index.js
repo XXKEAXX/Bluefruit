@@ -154,7 +154,7 @@ function UnBlockInterval(why){
 function onDeviceReady(){
 
 	
-    var password = 'hello friend2!3d world hmmm!!! something new to test today? we are using Bluefruit at Kea :-)';
+    var password = 'Hello, Everybody! We are using Ble at Kea and have solved the 20 byte limit.';
 	
 	
 
