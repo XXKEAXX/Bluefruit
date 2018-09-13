@@ -208,18 +208,18 @@ function onDeviceReady(){
 				 payloads[index] = chunk+"+--+"+last.toString();
 				
 					
-						setTimeout(function(){
+						setTimeout(function(payload){
 						
 							 	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
-				 				 stringToBytes(payloads[index]), function() {
+				 				 stringToBytes(payload), function() {
 	
 							  		 BlockInterval = 1;
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*1500);
+						}, index*1500, (chunk+"+--+"+last.toString()) );
 					
 					
 				});
