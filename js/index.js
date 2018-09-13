@@ -220,6 +220,17 @@ function onDeviceReady(){
 							  }, UnBlockInterval);
 						
 						
+						    ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			 stringToBytes(payload), function() {
+	
+							   BlockInterval = 1;
+							  
+							  
+							  }, UnBlockInterval);
+						
+						
 						
 						}, index*1200 ); // end delay
 
