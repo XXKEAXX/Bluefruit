@@ -232,7 +232,7 @@ function onDeviceReady(){
 					
 							 	 }, UnBlockInterval);
 							     
-						}, index*1200, (chunk+"."+last.toString()+C_ID+".") );
+						}, index*1600, (chunk+"."+last.toString()+C_ID+".") );
 					
 					
 				});
