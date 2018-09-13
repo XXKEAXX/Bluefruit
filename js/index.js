@@ -21,6 +21,47 @@ function decrypt (password, key) {
 }
 
 
+function NineBytesTimeStamp(){
+
+    var d = new Date();
+    var ms = d.getMilliseconds();
+    var s = d.getSeconds();
+    var m = d.getMinutes();
+    var h = d.getHours();
+    
+     if(ms < 10 && ms < 100)
+     ms = "00"+ms.toString();
+     else
+     ms = ms.toString();
+     
+ 
+     if(ms >= 10 && ms < 100)
+     ms = "0"+ms.toString();
+     else
+     ms = ms.toString();
+  
+  
+    if(s < 10)
+     s = "0"+s.toString();
+     else
+     s = s.toString();
+     
+     
+     if(m < 10)
+     m = "0"+m.toString();
+     else
+     m = m.toString();
+     
+     if(h < 10)
+     h = "0"+h.toString();
+     else
+     h = h.toString();
+     
+
+  return h+m+s+ms;
+}
+
+
 
 // ASCII only
 function bytesToString(buffer) {
