@@ -218,13 +218,28 @@ function onDeviceReady(){
 						     ble.writeWithoutResponse(deviceId, 
 						 	 blue.serviceUUID,
 				 		 	 blue.txCharacteristic, 
-				 			 stringToBytes(encrypt("hello", 240429)), function() {
+				 			 stringToBytes(encrypt("hello+--+0", 240429)), function() {
 	
 							   BlockInterval = 1;
 							  
 							  
 							  }, UnBlockInterval);
-						
+						setTimeout(function(){
+								     
+							
+							  ble.writeWithoutResponse(deviceId, 
+						 	 blue.serviceUUID,
+				 		 	 blue.txCharacteristic, 
+				 			 stringToBytes(encrypt("NOO+--+0", 240429)), function() {
+	
+							   BlockInterval = 1;
+							  
+							  
+							  }, UnBlockInterval);
+							
+							
+								     
+								     }, 3000);
 						 
 					
 						 
