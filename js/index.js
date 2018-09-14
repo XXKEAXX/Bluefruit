@@ -166,11 +166,22 @@ function UnBlockInterval(why){
 	 alert("ERROR: " + why); 
 }
 
+function ChallengeGenerator(max, filter_char) {
+    filter_char = filter_char || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var randomResult = '';
+    for (var i = 0; i < max; i++)
+    {
+        var randomPoz = Math.floor(Math.random() * filter_char.length);
+        randomResult += filter_char.substring(randomPoz,randomPoz+1);
+    }
+    return randomResult;
+}
+
 
 function onDeviceReady(){
 
 	
-    var password = encrypt('Hello, Everybody! We are using Ble at Kea and have solved the 20 byte limit.', 240429);
+      var password = encrypt(ChallengeGenerator(20,"2KEA1RCHARCHALLANGE09876543"), 240429);
 
 	
 	
