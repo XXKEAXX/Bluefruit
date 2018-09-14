@@ -192,7 +192,7 @@ function ChallengeGenerator(max) {
 function onDeviceReady(){
 
       var encryptionkey = 240429;
-      var challange = ChallengeGenerator(20);	
+      var challange = ChallengeGenerator(11);	
       var encrypteddata = encrypt(challange, encryptionkey);
 
 	
