@@ -230,7 +230,8 @@ function onDeviceReady(){
 						       
 						       function(data){
 				 
-								 alert("GOT: "+bytesToString(data));
+						 		
+								 alert("GOT: "+decrypt(bytesToString(data), 240429));
 						 
 						      }, UnBlockInterval);
 						 
