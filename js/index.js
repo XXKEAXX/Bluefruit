@@ -232,7 +232,7 @@ function onDeviceReady(){
 						       
 						       function(data){
 						
-						 	var receivedid = bytesToString(data).slice(9);
+						 	var receivedid = bytesToString(data).slice(0,9);
 						 
 						 	var receivedpayload = decrypt(bytesToString(data).substr(9), encryptionkey);
 				 
