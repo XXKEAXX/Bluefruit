@@ -194,6 +194,7 @@ function onDeviceReady(){
       var encryptionkey = 240429;
       var challange = ChallengeGenerator(11);	
       var encrypteddata = encrypt(challange, encryptionkey);
+      var C_ID = NineBytesTimeStamp();
 
 	
 	
@@ -230,12 +231,14 @@ function onDeviceReady(){
 						       blue.rxCharacteristic, 
 						       
 						       function(data){
+						
+						 	var receivedid = bytesToString(data).slice(9);
 						 
 						 	var receivedpayload = decrypt(bytesToString(data).substr(9), encryptionkey);
 				 
-						 	if(challange ==receivedpayload ){
+						 	if(challange ==receivedpayload && C_ID == receivedid ){
 						
-								alert("MATCH!");
+								alert("MATCH: "+receivedid);
 							}else{
 								alert("DONT MATCH!: "+challange + " == "+receivedpayload);
 							}
@@ -245,7 +248,7 @@ function onDeviceReady(){
 						 
 						 
 					
-			 	var C_ID = NineBytesTimeStamp();
+			 	
 						 //encrypt(password, 240429)
 				ChunkedTransfer(encrypteddata, 8, function(chunk, last, index){
                 
