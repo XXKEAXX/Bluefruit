@@ -231,8 +231,7 @@ function onDeviceReady(){
 						       
 						       function(data){
 						 
-						  
-						 	var receivedpayload = decrypt(bytesToString(data), encryptionkey);
+						 	var receivedpayload = decrypt(bytesToString(data).substr(9), encryptionkey);
 				 
 						 	if(challange ==receivedpayload ){
 						
