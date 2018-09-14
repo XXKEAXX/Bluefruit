@@ -166,7 +166,7 @@ function UnBlockInterval(why){
 	 alert("ERROR: " + why); 
 }
 
-function ChallengeGenerator(max, filter_char) {
+function ChallengeGenerator11(max, filter_char) {
     filter_char = filter_char || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var randomResult = '';
     for (var i = 0; i < max; i++)
@@ -178,10 +178,21 @@ function ChallengeGenerator(max, filter_char) {
 }
 
 
+function ChallengeGenerator(max) {
+  var textResult = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < max; i++)
+    textResult += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return textResult;
+}
+
+
 function onDeviceReady(){
 
 	
-      var password = encrypt(ChallengeGenerator(20,"2KEA1RCHARCHALLANGE09876543"), 240429);
+      var password = encrypt(ChallengeGenerator(20), 240429);
 
 	
 	
