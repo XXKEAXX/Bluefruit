@@ -240,7 +240,11 @@ function onDeviceReady(){
 						
 								alert("MATCH: "+receivedid);
 							}else{
+								if(C_ID == receivedid){
+									
 								alert("DONT MATCH!: "+challange + " == "+receivedpayload);
+								
+								}
 							}
 								
 						 
