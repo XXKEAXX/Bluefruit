@@ -230,12 +230,15 @@ function onDeviceReady(){
 						       blue.rxCharacteristic, 
 						       
 						       function(data){
+						 
+						  
+						 	var receivedpayload = decrypt(bytesToString(data), encryptionkey);
 				 
-						 	if(challange == decrypt(bytesToString(data), encryptionkey) ){
+						 	if(challange ==receivedpayload ){
 						
 								alert("MATCH!");
 							}else{
-								alert("DONT MATCH!");
+								alert("DONT MATCH!: " challange + " == "+receivedpayload);
 							}
 								
 						 
