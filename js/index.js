@@ -238,7 +238,7 @@ function onDeviceReady(){
 						
 								alert("MATCH!");
 							}else{
-								alert("DONT MATCH!: " challange + " == "+receivedpayload);
+								alert("DONT MATCH!: "+challange + " == "+receivedpayload);
 							}
 								
 						 
