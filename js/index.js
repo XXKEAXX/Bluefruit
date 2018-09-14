@@ -191,8 +191,9 @@ function ChallengeGenerator(max) {
 
 function onDeviceReady(){
 
-	
-      var password = encrypt(ChallengeGenerator(20), 240429);
+      var encryptionkey = 240429;
+      var challange = ChallengeGenerator(20);	
+      var encrypteddata = encrypt(challange, encryptionkey);
 
 	
 	
@@ -230,8 +231,13 @@ function onDeviceReady(){
 						       
 						       function(data){
 				 
-						 		
-								 alert("GOT: "+decrypt(bytesToString(data), 240429));
+						 	if(challange == decrypt(bytesToString(data), encryptionkey) ){
+						
+								alert("MATCH!");
+							}else{
+								alert("DONT MATCH!");
+							}
+								
 						 
 						      }, UnBlockInterval);
 						 
@@ -239,7 +245,7 @@ function onDeviceReady(){
 					
 			 	var C_ID = NineBytesTimeStamp();
 						 //encrypt(password, 240429)
-				ChunkedTransfer(password, 8, function(chunk, last, index){
+				ChunkedTransfer(encrypteddata, 8, function(chunk, last, index){
                 
 			
 					     setTimeout(function(payload){
@@ -259,9 +265,7 @@ function onDeviceReady(){
 				});
 						 
 						 
-						 var test = encrypt("hello", 240429)+"+--+0";
-					
-					
+						
 						 
 						 
 
