@@ -239,6 +239,21 @@ function onDeviceReady(){
 						 	if(challange ==receivedpayload && C_ID == receivedid ){
 						
 								alert("MATCH: "+receivedid);
+								
+								
+								var payload = ("00000000"+"."+"2"+C_ID+".");
+								
+							 	 ble.writeWithoutResponse(deviceId, 
+						 		 blue.serviceUUID,
+				 		 		 blue.txCharacteristic, 
+				 				 stringToBytes(payload), function() {
+	
+							  		 BlockInterval = 1;
+					
+							 	 }, UnBlockInterval);
+								
+								
+								
 							}else{
 								if(C_ID == receivedid){
 									
