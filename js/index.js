@@ -248,13 +248,14 @@ function onDeviceReady(){
 								
 							rssiInterval = setInterval(function() {
                 ble.readRSSI(deviceId, function(rssi) {
-		
-	              if(riko_af(-59, rssi) <= 0.46)
-			      alert(1);
-			 
-			 
 			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+riko_af(-59, rssi);
-			/*
+		
+			
+	              if(riko_af(-59, rssi) <= 0.48){
+			      
+			    
+			 
+		
 		        	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
@@ -263,7 +264,9 @@ function onDeviceReady(){
 							  		 BlockInterval = 1;
 					
 							 	 }, UnBlockInterval);
-			*/
+			      
+			      	 clearInterval(rssiInterval);
+			}
                     }, function(err) {
                         		alert('unable to read RSSI'+err);
                        		 clearInterval(rssiInterval);
