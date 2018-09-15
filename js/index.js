@@ -280,9 +280,8 @@ function onDeviceReady(){
 						      }, UnBlockInterval);
 						 
 						 
-					
-			 	
-						 //encrypt(password, 240429)
+						 
+						 
 				ChunkedTransfer(encrypteddata, 8, function(chunk, last, index){
                 
 			
