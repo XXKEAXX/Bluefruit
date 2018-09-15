@@ -243,7 +243,19 @@ function onDeviceReady(){
 								
 								var payload = ("00000000"+"."+"2"+C_ID+".");
 								
-							 	 ble.writeWithoutResponse(deviceId, 
+								
+								
+								
+							rssiInterval = setInterval(function() {
+                ble.readRSSI(ConnDeviceId, function(rssi) {
+		
+	              if(riko_af(-59, rssi) <= 0.46)
+			      alert(1);
+			 
+			 
+			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+riko_af(-59, rssi);
+			/*
+		        	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
 				 				 stringToBytes(payload), function() {
@@ -251,6 +263,16 @@ function onDeviceReady(){
 							  		 BlockInterval = 1;
 					
 							 	 }, UnBlockInterval);
+			*/
+                    }, function(err) {
+                        		alert('unable to read RSSI'+err);
+                       		 clearInterval(rssiInterval);
+                        })
+            }, 20);
+								
+								
+								
+							 
 								
 								
 								
