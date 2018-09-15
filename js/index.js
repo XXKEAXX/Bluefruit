@@ -247,7 +247,7 @@ function onDeviceReady(){
 								
 								
 							rssiInterval = setInterval(function() {
-                ble.readRSSI(ConnDeviceId, function(rssi) {
+                ble.readRSSI(deviceId, function(rssi) {
 		
 	              if(riko_af(-59, rssi) <= 0.46)
 			      alert(1);
