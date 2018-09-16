@@ -243,7 +243,7 @@ function onDeviceReady(){
 			
 	              if(riko_af(-59, rssi) <= 0.48  && registered == 0 ||
 			 
-			 riko_af(-59, rssi) <= 0.48  && HowMany(sts) > 3.0 ){
+			 riko_af(-59, rssi) <= 0.48  && HowMany(sts) >= 3.0 ){
 			      
 			     
 			      
