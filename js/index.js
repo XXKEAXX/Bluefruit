@@ -238,7 +238,7 @@ function onDeviceReady(){
 								
 	rssiInterval = setInterval(function() {
                 ble.readRSSI(deviceId, function(rssi) {
-			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+riko_af(-59, rssi);
+
 		
 			
 	              if(riko_af(-59, rssi) <= 0.42  && registered == 0 ||
