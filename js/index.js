@@ -323,12 +323,6 @@ function onDeviceReady(){
 
 
 
-function onLoad(){
-	document.addEventListener('deviceready', onDeviceReady, false);
-       // bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
-}
-
-
 function onDiscoverDevice(device){
     //Make a list in html and show devises
     var listItem = document.createElement('li'),
