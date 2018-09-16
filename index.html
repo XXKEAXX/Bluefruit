@@ -11,19 +11,51 @@
         <script type="text/javascript" src="js/index.js"></script>
         <title>Beacon</title>
 
-
+    <script>
+    
+	    
+	      function initialize2() {
+		
+       onLoad();
+      }
+	    
+	    
+	    
+	    
+    </script>
 	
 	</head>
-     <body>
+     <body onload="initialize2()">
 
-	
+		<h1 style="color:#333333">Bluifruit test - Karim er meget sej! han er sej.</h1>
+           
+	      <div id="earth_div" style="width:600px;height:400px;"></div>
 	     
- 
+	     
+		<ul id="bleDeviceList"> </ul>  
+		<button id="refreshButton" onClick = "refreshDeviceList()">Refresh</button>
+		<br>
+	    	<button id="connectbutton" class="button" onclick = "connectbutton()">Connect</button>
+	        <br>
+		<div id="statusDiv">Status: Disconnected</div>
+		<div id="bleId">DeviceId:</div>
+		<div id="debugDiv"></div>
+		<br><br>
+		<button id="ledOnButton" onclick = "data('1')">Set led ON</button>
+		<br><br>
+		<button id="ledOffButton" onclick = "data('0')">Set Led Off</button>
+		<br><br><br>
+		<input type="text" id="messageInput" value="Hello"/>
+		<br>
+		<button id="sendButton" onclick = "sendData()">Send</button>
+		<br>
 		
-	    	<button id="connectbutton" class="button">Connect</button>
-	       
+		<br>
+		<div id="sendDiv"></div>
+		<br><br>
+		<button id="disconnectButton"onClick="disconnect()">Disconnect</button>
+		<div id="receiveDiv"></div>
+		     
 		
     </body>
 </html>
-			
-
