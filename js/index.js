@@ -166,17 +166,9 @@ function UnBlockInterval(why){
 	 alert("ERROR: " + why); 
 }
 
-function ChallengeGenerator11(max, filter_char) {
-    filter_char = filter_char || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var randomResult = '';
-    for (var i = 0; i < max; i++)
-    {
-        var randomPoz = Math.floor(Math.random() * filter_char.length);
-        randomResult += filter_char.substring(randomPoz,randomPoz+1);
-    }
-    return randomResult;
+function HowMany(time) {
+    return Math.round((new Date().getTime() / 1000)) - time;
 }
-
 
 function ChallengeGenerator(max) {
   var textResult = "";
@@ -195,8 +187,10 @@ function onDeviceReady(){
       var challange = ChallengeGenerator(11);	
       var encrypteddata = encrypt(challange, encryptionkey);
       var C_ID = NineBytesTimeStamp();
-
 	
+      var registered  = 0;
+
+      var msts = new Date().getTime(); // timestamps in millisecs;
 	
 	
 	
@@ -238,18 +232,32 @@ function onDeviceReady(){
 				 
 						 	if(challange ==receivedpayload && C_ID == receivedid ){
 						
+						       
 								
 								
-								var payload = ("00000000"+"."+"2"+C_ID+".");
 								
 	rssiInterval = setInterval(function() {
                 ble.readRSSI(deviceId, function(rssi) {
 			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+riko_af(-59, rssi);
 		
 			
-	              if(riko_af(-59, rssi) <= 0.48){
+	              if(riko_af(-59, rssi) <= 0.48  registered == 0 ||
+			 
+			 riko_af(-59, rssi) <= 0.48  && HowMany(msts) > 2.0 ){
 			      
-			  
+			     
+			    if(registered == 0)
+				    registered = 2;
+			    if(registered == 3)
+				    registered = 2;
+			            else  
+				    registered = 3;
+			    
+
+			            var payload = ("00000000"+"."+registered.toString()+C_ID+".");
+			   
+			      
+			      
 		        	 ble.writeWithoutResponse(deviceId, 
 						 		 blue.serviceUUID,
 				 		 		 blue.txCharacteristic, 
@@ -259,7 +267,10 @@ function onDeviceReady(){
 					
 							 }, UnBlockInterval);
 			      
-			      	 			clearInterval(rssiInterval);
+			      	 		
+			       msts = new Date().getTime(); 
+			      
+			      
 			}
                     }, function(err) {
                         			alert('unable to read RSSI'+err);
