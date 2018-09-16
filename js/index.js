@@ -327,7 +327,7 @@ function onDeviceReady(){
 
 						 
 					 
-					 }, onConnError);
+					 }, onError);
 					 
 					 
 					 
@@ -340,6 +340,9 @@ function onDeviceReady(){
          }, 250);
 		
 }
+
+
+
 
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
