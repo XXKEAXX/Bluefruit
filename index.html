@@ -11,10 +11,14 @@
         <script type="text/javascript" src="js/index.js"></script>
         <title>Beacon</title>
 
-
+	
 	</head>
      <body>
 
+		<h1 style="color:#333333">Bluifruit test - Karim er meget sej! han er sej.</h1>
+           
+	      <div id="earth_div" style="width:600px;height:400px;"></div>
+	     
 	     
 		<ul id="bleDeviceList"> </ul>  
 		<button id="refreshButton" onClick = "refreshDeviceList()">Refresh</button>
@@ -25,7 +29,16 @@
 		<div id="bleId">DeviceId:</div>
 		<div id="debugDiv"></div>
 		<br><br>
-	
+		<button id="ledOnButton" onclick = "data('1')">Set led ON</button>
+		<br><br>
+		<button id="ledOffButton" onclick = "data('0')">Set Led Off</button>
+		<br><br><br>
+		<input type="text" id="messageInput" value="Hello"/>
+		<br>
+		<button id="sendButton" onclick = "sendData()">Send</button>
+		<br>
+		
+		<br>
 		<div id="sendDiv"></div>
 		<br><br>
 		<button id="disconnectButton"onClick="disconnect()">Disconnect</button>
