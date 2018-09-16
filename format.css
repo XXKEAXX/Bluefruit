@@ -11,9 +11,7 @@ body{
 }	
 
 .window {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-     border-radius: 3px;
+
 	
     display: block; 
     position: fixed; 
@@ -34,6 +32,10 @@ body{
 }
 
 .window-content {
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+	
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
