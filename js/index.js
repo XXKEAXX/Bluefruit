@@ -290,9 +290,9 @@ function onDeviceReady(){
 							}else{
 								if(C_ID == receivedid){
 						
-				// document.getElementById("ptext").textContent="Klar til registrering!";
+					document.getElementById("ptext").textContent="Klar til registrering!";
 									
-								//document.getElementById("pimg").src="found.png";
+					document.getElementById("pimg").src="found.png";
 							     
 									
 								alert("DONT MATCH!: "+challange + " == "+receivedpayload);
