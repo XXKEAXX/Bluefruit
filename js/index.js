@@ -241,9 +241,9 @@ function onDeviceReady(){
 			document.getElementById("statusDiv").innerHTML = " Status: Connected: "+riko_af(-59, rssi);
 		
 			
-	              if(riko_af(-59, rssi) <= 0.48  && registered == 0 ||
+	              if(riko_af(-59, rssi) <= 0.42  && registered == 0 ||
 			 
-			 riko_af(-59, rssi) <= 0.48  && HowMany(sts) >= 3.0 ){
+			 riko_af(-59, rssi) <= 0.42  && HowMany(sts) >= 4.0 ){
 			      
 			     
 			      
