@@ -292,7 +292,7 @@ function onDeviceReady(){
 						
 				// document.getElementById("ptext").textContent="Klar til registrering!";
 									
-								document.getElementById("pimg").src="found.png";
+								//document.getElementById("pimg").src="found.png";
 							     
 									
 								alert("DONT MATCH!: "+challange + " == "+receivedpayload);
