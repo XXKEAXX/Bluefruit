@@ -246,15 +246,23 @@ function onDeviceReady(){
 			 riko_af(-59, rssi) <= 0.48  && HowMany(msts) > 2.0 ){
 			      
 			     
-			    if(registered == 0)
-				    registered = 2;
-			    if(registered == 3)
-				    registered = 2;
-			            else  
-				    registered = 3;
-			    
+			      
+			      switch (registered) {
+  				 case 0:
+					      registered = 2;
+   				 break;
+				 case 2:
+					      registered = 3;
+   				 break;
+			         case 3:
+					      registered = 2;
+   				 break;
+  
+				}
 
-			            var payload = ("00000000"+"."+registered.toString()+C_ID+".");
+	
+
+			         var payload = ("00000000"+"."+registered.toString()+C_ID+".");
 			   
 			      
 			      
