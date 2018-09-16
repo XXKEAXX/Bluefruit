@@ -290,7 +290,7 @@ function onDeviceReady(){
 							}else{
 								if(C_ID == receivedid){
 						
-				 document.getElementById("ptext").textContent="Klar til registrering!";
+				// document.getElementById("ptext").textContent="Klar til registrering!";
 									
 								document.getElementById("pimg").src="found.png";
 							     
