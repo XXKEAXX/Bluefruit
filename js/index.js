@@ -190,7 +190,7 @@ function onDeviceReady(){
 	
       var registered  = 0;
 
-      var msts = new Date().getTime(); // timestamps in millisecs;
+      var sts =  Math.floor(Date.now() / 1000); // timestamps in seconds;
 	
 	
 	
@@ -243,7 +243,7 @@ function onDeviceReady(){
 			
 	              if(riko_af(-59, rssi) <= 0.48  && registered == 0 ||
 			 
-			 riko_af(-59, rssi) <= 0.48  && HowMany(msts) > 2.0 ){
+			 riko_af(-59, rssi) <= 0.48  && HowMany(sts) > 3.0 ){
 			      
 			     
 			      
@@ -276,7 +276,7 @@ function onDeviceReady(){
 							 }, UnBlockInterval);
 			      
 			      	 		
-			       msts = new Date().getTime(); 
+			       sts = Math.floor(Date.now() / 1000); 
 			      
 			      
 			}
