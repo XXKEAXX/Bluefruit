@@ -289,6 +289,9 @@ function onDeviceReady(){
 								
 							}else{
 								if(C_ID == receivedid){
+						
+								document.getElementById("pimg").src="connect.png";
+							     
 									
 								alert("DONT MATCH!: "+challange + " == "+receivedpayload);
 								
