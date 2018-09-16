@@ -1,3 +1,6 @@
+// Based on an example:
+//https://github.com/don/cordova-plugin-ble-central
+
 
 function encrypt (password, key) {
     var i,
@@ -102,6 +105,13 @@ function ChunkedTransfer(str, size, callback) {
 
 
 
+var delay = ( function() {
+    var timer = 0;
+    return function(callback, ms) {
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+    };
+})();
 function riko_af(transmittereffektniveau, rssi) {
 	
     var db_f = transmittereffektniveau - rssi;
@@ -111,7 +121,13 @@ function riko_af(transmittereffektniveau, rssi) {
     return Math.sqrt(l_f);
 }
 
+// this is ble hm-10 UART service
+/*var blue= {
+    serviceUUID: "0000FFE0-0000-1000-8000-00805F9B34FB",
+    characteristicUUID: "0000FFE1-0000-1000-8000-00805F9B34FB"
+};*/
 
+//the bluefruit UART Service
 var blue ={
 	serviceUUID: '6e400001-b5a3-f393-e0a9-e50e24dcca9e',
     txCharacteristic: '6e400002-b5a3-f393-e0a9-e50e24dcca9e', // transmit is from the phone's perspective
@@ -126,6 +142,13 @@ var rssiInterval;
 var canConnect = 0;
 var deviceList =[];
  
+function connectbutton() {
+	
+	canConnect = 1;
+	
+	document.getElementById("connectbutton").classList.add("connectbutton");
+}	
+
 
 
 
@@ -133,6 +156,7 @@ var deviceList =[];
 
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
+   
 }
 
 
@@ -321,8 +345,6 @@ function onDeviceReady(){
 
 
 
-
-
 function onDiscoverDevice(device){
     //Make a list in html and show devises
     var listItem = document.createElement('li'),
@@ -399,5 +421,3 @@ function onDisconnect(){
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
 }
-	
-	
