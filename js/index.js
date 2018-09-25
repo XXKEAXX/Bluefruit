@@ -1,7 +1,3 @@
-// Based on an example:
-//https://github.com/don/cordova-plugin-ble-central
-
-
 function encrypt (password, key) {
     var i,
         output = '';
@@ -245,9 +241,9 @@ function onDeviceReady(){
 
 		
 			
-	              if(riko_af(-59, rssi) <= 0.42  && registered == 0 ||
+	              if(riko_af(-59, rssi) <= 0.36  && registered == 0 ||
 			 
-			 riko_af(-59, rssi) <= 0.42  && HowMany(sts) >= 4.0 ){
+			 riko_af(-59, rssi) <= 0.36  && HowMany(sts) >= 5.0 ){
 			      
 			     
 			      
